@@ -47,6 +47,7 @@ class FileSystemEventManager {
             }
 
             if !self.storage.allowedExtensions.contains(url.pathExtension) && !self.storage.isValidUTI(url: url) {
+                try? FileManager.default.removeItem(at: url)
                 return
             }
             
